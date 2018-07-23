@@ -1,37 +1,54 @@
-* {
-    box-sizing: border-box;
-    color: #000;
-    text-decoration: none;
+:root {
+    /* type */
+    --primaryFont: 'roboto condensed';
+    --headFont: 'roboto black';
+    --pBodyTxt: 32px;
+    /* colors */
+    --primaryBlack: rgb(20, 18, 18);
+    --secondaryBlack: rgba(114, 112, 112, 0.664);
+    --primaryHighllight: #ffffff;
+    /* misc */
+    --sub-text: rgba(88, 87, 87, 0.734);
+    --bwFilter: grayscale(1) contrast(150%);
+    --fadeBorder: 1px solid rgba(208, 208, 208, 0.268);
+    /* testing */
+    --textColor: papayawhip;
 }
 
-:root {
-    --pBodyTxt: 32px;
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: var(--primaryFont);
+    transition: all 1s ease-in-out;
 }
 
 html,
 body {
     margin: 0;
     padding: 0;
-    font-family: roboto;
 }
 
 header {
     position: fixed;
+    top: 0;
+    z-index: -1;
     width: 100%;
     height: 100vh;
-    position: fixed;
 }
 
 section {
-    position: relative;
+    position: absolute;
+    top: 100vh;
+    z-index: 9990;
     width: 100%;
     height: 100vh;
-    background: palevioletred;
+    background: var(--textColor);
+    display: flex;
+    flex-direction: column;
 }
 
 section:first-of-type {
     top: 100vh;
-    background: #000;
 }
 
 nav {
@@ -46,6 +63,17 @@ nav {
     z-index: 9999;
 }
 
+.nav-item {
+    padding: 2px;
+}
+
+.nav-item {
+    color: var(--primaryBlack);
+    text-transform: uppercase;
+    font-family: 'roboto condensed';
+    line-height: 4px;
+}
+
 .col-2 {
     top: 0;
     position: absolute;
@@ -53,7 +81,6 @@ nav {
     height: 100vh;
     z-index: 9990;
     display: flex;
-    background: url(../images/lll.jpg) no-repeat;
     background-size: cover;
     object-fit: cover;
 }
@@ -67,7 +94,10 @@ nav {
 }
 
 .sect-2 {
-    background: transparent;
+    background: url(../images/oliver-shou-360281-unsplash.jpg) center no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    filter: var(--bwFilter);
 }
 
 .nav-item {
@@ -77,19 +107,36 @@ nav {
 }
 
 .logo {
-    background: #000000;
+    background: white;
     height: inherit;
+    border: 4px solid black;
+    display: flex;
+}
+
+/* TODO: change to svg background */
+
+.logo span {
+    font-size: 1.8em;
+    font-family: 'F37BellaStencil';
+    margin: auto;
+    text-transform: lowercase;
 }
 
 .social-links {
     justify-content: space-between;
 }
 
+.menu {
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
 .nav-item i {
     width: 24px;
     height: 24px;
-    background: #000;
+    background: black;
     cursor: pointer;
+    border: 2px solid white;
 }
 
 i {
@@ -119,3 +166,180 @@ i {
 .overboard {
     font-size: 4em;
 } */
+
+.h1,
+h2,
+h3 {
+    font-family: 'roboto black'
+}
+
+.hidden {
+    display: none;
+}
+
+.sect {
+    padding: 8% 4em 1em 10em;
+    display: flex;
+}
+
+.inner-con {
+    flex-basis: 100%;
+}
+
+.hor-list {
+    margin: auto;
+    margin-left: 0;
+}
+
+.summon {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.summon li {
+    margin-bottom: 1em;
+    padding: 1em;
+    list-style: none;
+    font-size: 1.5em;
+}
+
+.summon li a {
+    color: var(--secondaryBlack);
+    transform: translateX(1em);
+}
+
+.summon .active {
+    border-bottom: var(--fadeBorder);
+    border-top: var(--fadeBorder);
+}
+
+.summon li.active a {
+    color: var(--primaryBlack);
+}
+
+.summon .active::before {
+    content: '';
+    position: absolute;
+    background: #000;
+    width: 10px;
+    height: 2em;
+    /* transform: translate(-2.69em, 5px); */
+    left: 0;
+}
+
+.descriptor {
+    border: rebeccapurple 1px solid;
+    text-align: right;
+    color: wheat;
+}
+
+.descriptor h1 {
+    margin-top: 3em;
+}
+
+button,
+button.primary {
+    outline: none;
+    border: none;
+    padding: 16px 30px;
+    margin-top: 2em;
+    width: 200px;
+    background: var(--primaryHighllight);
+    color: #000;
+    border: 2px solid var(--primaryBlack);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+button.primary {
+    color: var(--primaryHighllight);
+    background: var(--primaryBlack);
+}
+
+/* button.primary::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 100px;
+    height: 53px;
+    background: #000;
+    transform: translate(-76px, -18px)
+}
+TODO: remove and save for next project
+
+button.primary span {
+    color: #fff;
+} */
+
+.summon li {
+    background-color: transparent;
+    margin: 0;
+}
+
+.summon li:hover a {
+    transform: scale(1.2)
+}
+
+.summon li a {
+    text-transform: capitalize;
+    font-size: 1.5em;
+    font-weight: bolder
+}
+
+.summon li .sub {
+    color: var(--sub-text);
+    font-size: 14px;
+    margin: 0;
+}
+
+.summon li:not(.active) .sub {
+    opacity: .5;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background: var(--primaryBlack);
+    margin: auto;
+    margin-top: 0;
+}
+
+.backdrop--left {
+    margin: auto 0;
+    width: 50%;
+    height: 100%;
+    background: #000;
+    z-index: -1;
+}
+
+.content--card {
+    width: 76%;
+    height: 70vh;
+    margin: auto 0;
+    top: calc(20%);
+    position: absolute;
+    z-index: 1;
+    background: palevioletred;
+    right: 0;
+    display: flex;
+}
+
+.with-text {
+    padding-left: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+/* responsive */
+
+@media screen and (max-width: 900px) {
+    .col-2 {
+        flex-direction: column;
+    }
+    .backdrop--left {
+        width: 100%;
+    }
+}
