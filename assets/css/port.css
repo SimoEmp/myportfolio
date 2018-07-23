@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    color: #000;
+    text-decoration: none;
+}
+
+:root {
+    --pBodyTxt: 32px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: palevioletred;
+}
+
+section:first-of-type {
+    top: 100vh;
+    background: #000;
+}
+
+nav {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 74px;
+    margin-top: 1em;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    z-index: 9999;
+}
+
+.col-2 {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 9990;
+    display: flex;
+    background: url(../images/lll.jpg) no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.sect {
+    flex: 1;
+}
+
+.sect-1 {
+    background: #fff;
+}
+
+.sect-2 {
+    background: transparent;
+}
+
+.nav-item {
+    flex-basis: 100px;
+    display: flex;
+    align-self: center;
+}
+
+.logo {
+    background: #000000;
+    height: inherit;
+}
+
+.social-links {
+    justify-content: space-between;
+}
+
+.nav-item i {
+    width: 24px;
+    height: 24px;
+    background: #000;
+    cursor: pointer;
+}
+
+i {
+    width: 2px;
+    height: 60px;
+    background: #000;
+    cursor: pointer;
+}
+
+/* 
+.prelude {
+    background-color: papayawhip;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.center {
+    text-align: center;
+}
+
+.center .hero-text {
+    font-weight: 200;
+    font-size: var(--pBodyTxt);
+    letter-spacing: 2px;
+}
+
+.overboard {
+    font-size: 4em;
+} */
