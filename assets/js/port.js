@@ -1,25 +1,4 @@
-import anime from "animejs";
-
-// anime({
-//     targets: '.sect-1',
-//     translateX: [{
-//             value: 100,
-//             duration: 1200
-//         },
-//         {
-//             value: 100,
-//             duration: 1200
-//         }
-//     ],
-//     background: '#000',
-//     duration: 2000,
-//     loop: true,
-// });
-try {
-    (() => console.log("hello!"))
-} catch (error) {
-    console.error("something went bloody");
-}
+//Intersection observer
 var links = document.querySelectorAll('.nav-item');
 
 let options = {

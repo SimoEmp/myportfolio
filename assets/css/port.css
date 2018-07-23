@@ -7,6 +7,8 @@
     --primaryBlack: rgb(20, 18, 18);
     --secondaryBlack: rgba(114, 112, 112, 0.664);
     --primaryHighllight: #ffffff;
+    /* extents */
+    --btnWidth: 160px;
     /* misc */
     --sub-text: rgba(88, 87, 87, 0.734);
     --bwFilter: grayscale(1) contrast(150%);
@@ -42,7 +44,7 @@ section {
     z-index: 9990;
     width: 100%;
     height: 100vh;
-    background: var(--textColor);
+    background: var(--primaryHighllight);
     display: flex;
     flex-direction: column;
 }
@@ -55,7 +57,7 @@ nav {
     top: 0;
     position: fixed;
     width: 100%;
-    height: 74px;
+    height: 60px;
     margin-top: 1em;
     padding: 2em;
     display: flex;
@@ -95,6 +97,9 @@ nav {
 
 .sect-2 {
     background: url(../images/oliver-shou-360281-unsplash.jpg) center no-repeat;
+}
+
+.image-bg {
     object-fit: cover;
     background-size: cover;
     filter: var(--bwFilter);
@@ -108,6 +113,7 @@ nav {
 
 .logo {
     background: white;
+    /* height: 6vh; */
     height: inherit;
     border: 4px solid black;
     display: flex;
@@ -128,7 +134,7 @@ nav {
 
 .menu {
     font-weight: 700;
-    letter-spacing: -1px;
+    padding-bottom: 8px;
 }
 
 .nav-item i {
@@ -168,9 +174,11 @@ i {
 } */
 
 .h1,
+h1,
 h2,
 h3 {
-    font-family: 'roboto black'
+    font-family: 'roboto black';
+    text-shadow: -2px -2px 0px var(--primaryHighllight);
 }
 
 .hidden {
@@ -195,6 +203,7 @@ h3 {
     margin: auto;
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .summon li {
@@ -242,14 +251,14 @@ button,
 button.primary {
     outline: none;
     border: none;
-    padding: 16px 30px;
+    padding: 10px 30px;
     margin-top: 2em;
-    width: 200px;
+    width: var(--btnWidth);
     background: var(--primaryHighllight);
     color: #000;
     border: 2px solid var(--primaryBlack);
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1px;
     cursor: pointer;
 }
@@ -283,6 +292,7 @@ button.primary span {
     transform: scale(1.2)
 }
 
+h1,
 .summon li a {
     text-transform: capitalize;
     font-size: 1.5em;
@@ -311,8 +321,10 @@ button.primary span {
     margin: auto 0;
     width: 50%;
     height: 100%;
-    background: #000;
+    background-image: url(../images/alex-jodoin-246078-unsplash.jpg);
+    background-position: center center;
     z-index: -1;
+    filter: blur(.5px) contrast(100%) grayscale(1);
 }
 
 .content--card {
@@ -322,24 +334,112 @@ button.primary span {
     top: calc(20%);
     position: absolute;
     z-index: 1;
-    background: palevioletred;
+    background: var(--primaryHighllight);
     right: 0;
     display: flex;
 }
 
 .with-text {
     padding-left: 10%;
-    padding-top: 10%;
+    padding-top: 6%;
+    padding-right: 5%;
     padding-bottom: 10%;
+    height: 100%;
+    display: flex;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    margin: auto;
+    transform: translateY(-1em)
+}
+
+.with-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 0;
+}
+
+.inner p {
+    margin-top: 0;
+}
+
+.with-text button {
+    margin-top: 1em;
+}
+
+.with-image {
+    flex-basis: 100%;
+    display: flex;
+    background-image: url(../images/alexandru-acea-349697-unsplash.jpg);
+    filter: contrast(100%) invert(100%) grayscale(2);
+    background-position: center;
+}
+
+canvas {
+    background: palegreen;
+    width: 100%;
+}
+
+.bg-num {
+    position: absolute;
+    opacity: .1;
+    left: .4em;
+    font-size: 8em;
+}
+
+.border-t-b {
+    border-top: solid 2px var(--primaryBlack);
+    border-bottom: solid 2px var(--primaryBlack);
 }
 
 /* responsive */
 
 @media screen and (max-width: 900px) {
+    :root {
+        --headText: 1.2em;
+    }
     .col-2 {
         flex-direction: column;
     }
     .backdrop--left {
         width: 100%;
+    }
+    .summon {
+        padding-top: 15vh;
+        text-align: center;
+    }
+    .sect-1 {
+        padding: 0;
+        margin: 0;
+    }
+    .summon li {
+        padding-left: 0;
+        font-size: var(--headText);
+    }
+    nav {
+        height: 40px;
+        transform: translateY(-35%)
+    }
+    .logo {
+        flex-basis: 60px;
+        transform: translateX(.5em)
+    }
+    .logo span {
+        font-size: var(--headText);
+    }
+    .social-links {
+        display: none;
+    }
+    .content--card {
+        width: 100%;
+    }
+    .with-image {
+        display: none;
+    }
+    .with-text {
+        padding: 0 3em;
     }
 }
