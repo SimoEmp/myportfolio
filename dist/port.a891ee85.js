@@ -105,27 +105,57 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"assets\\js\\port.js":[function(require,module,exports) {
 //Intersection observer
-var links = document.querySelectorAll('.nav-item');
+var sect1 = document.querySelector("section");
+
+var menu = document.querySelector(".menu");
+var navlinks = document.querySelectorAll(".nav-item:not(.logo)");
+var socialLinks = document.querySelectorAll(".nav-item>i");
 
 var options = {
-    rootMargin: '10px',
-    treshold: 1.0
+  root: null,
+  rootMargin: "-11px",
+  treshold: 1.0
 };
-var callback = function callback(entries, observer) {
-    entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-            links.forEach(function (llink) {
-                link.style.backgroundColor = 'white';
-                link.style.color = 'white';
-            });
-            observer.unobserve(entry.target);
-        } else {
-            link.style.backgroundColor = '#000';
-            link.style.color = '#000';
-        }
-        console.log(entry.isIntersecting);
-    });
-};
+var myobsvr = new IntersectionObserver(callback, options);
+
+function callback(entries, self) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting == 0) {
+      menu.style.backgroundColor = "black";
+      navlinks.forEach(function (link) {
+        return link.style.color = "white";
+      });
+      socialLinks.forEach(function (link) {
+        return link.style.backgroundColor = "white";
+      });
+      socialLinks.forEach(function (link) {
+        return link.style.backgroundColor = "white";
+      });
+    } else {
+      navlinks.forEach(function (link) {
+        return link.style.color = "black";
+      });
+      navlinks.forEach(function (link) {
+        return menu.style.backgroundColor = "white";
+      });
+      socialLinks.forEach(function (link) {
+        return link.style.backgroundColor = "black";
+      });
+    }
+    console.log("the ratio is : " + entry.intersectionRatio);
+  });
+}
+
+myobsvr.observe(sect1);
+//End intersection observer
+
+// Region 1
+var mainNavLinks = document.querySelector(".summon li a");
+
+mainNavLinks.addEventListener("click", function (e) {
+  mainNavLinks == e.target ? mainNavLinks.parentNode.classList.add("active") : mainNavLinks.classList.remove("active");
+});
+// End region 1
 },{}],"..\\..\\..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -155,7 +185,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '10502' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '1600' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
